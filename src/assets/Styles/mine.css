@@ -1,0 +1,19 @@
+.board{
+    position: relative;
+    height:35vw;
+    width: 35vw;
+    top:5%;
+}
+.square{
+    display: inline-block;
+    height: 3.5vw;
+    width: 3.5vw;
+    background-color: grey;
+    border-style: outset;
+    border-width: 1px;
+    text-align: center;
+    vertical-align: middle;
+}
+.steped{
+    background-color: lightgray;
+}

@@ -1,0 +1,21 @@
+.memLeader{
+    display: inline-block;
+    height:90%;
+    width:400px;
+    background-color: rgb(255, 200, 200);
+    align-items: center;
+}
+.minesLeader{
+    display: inline-block;
+    height:90%;
+    width:400px;
+    background-color: rgb(188, 255, 188);
+    align-items: center;
+}
+.holdLeader{
+    display:flex;
+    height: 90%;
+    width:80%;
+    position: absolute;
+    top:5%;
+}
