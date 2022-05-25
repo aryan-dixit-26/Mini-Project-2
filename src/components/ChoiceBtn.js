@@ -1,4 +1,4 @@
-import gamedata from "../games/GameData";
+// import gamedata from "../games/GameData";
 
 const ChoiceBtn = (props) => {
 

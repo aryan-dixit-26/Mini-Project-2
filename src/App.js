@@ -8,12 +8,10 @@ import StartBtn from "./components/StartBtn";
 import Points from "./components/Points";
 import TabBar from "./components/TabBar";
 import ChoiceBtn from "./components/ChoiceBtn";
-import api from "./Arch/api.js";
 import http from "./Arch/http.js";
 import { useEffect } from "react";
 
 const App = (Jogo, nome) => {
-
   const [tempoMem, settempoMem] = useState(gamedata.memory.time);
   const [startedMem, setstartedMem] = useState(gamedata.memory.started);
   const [pointsMem, setpointsMem] = useState(gamedata.memory.tries);
@@ -21,26 +19,23 @@ const App = (Jogo, nome) => {
   const [tempoMine, settempoMine] = useState(gamedata.mine.time);
   const [startedMine, setstartedMine] = useState(gamedata.mine.started);
   const [pointsMine, setpointsMine] = useState(gamedata.mine.pontos);
-
+  // eslint-disable-next-line
   const [apiLoading, setApiLoading] = useState(true);
 
-    useEffect(() => {
-      http.get("/Memory").then(res => {
-        const memData = res.data;
+  useEffect(() => {
+    http.get("/Memory").then((res) => {
+      const memData = res.data;
 
-        http.get("/Mines").then((res2)=>{
+      http.get("/Mines").then((res2) => {
+        gamedata.leaderBoard = { memory: memData, mines: res2.data };
 
-          gamedata.leaderBoard = {'memory':memData,'mines':res2.data}
-
-          if(nome === 'leaderboard'){
-            setApiLoading(false);
-            }
-
-        })
-
+        if (nome === "leaderboard") {
+          setApiLoading(false);
+        }
       });
-    }, []);
-
+    });
+    // eslint-disable-next-line
+  }, []);
 
   const runTimer = () => {
     if (gamedata[nome].over) {
@@ -120,26 +115,26 @@ const App = (Jogo, nome) => {
         },
       },
     },
-    leaderboard:{
-      tempo: { var: 'null', setVar: 'null' },
-      started: { var: 'null', setVar: 'null' },
-      startTimer: 'null',
+    leaderboard: {
+      tempo: { var: "null", setVar: "null" },
+      started: { var: "null", setVar: "null" },
+      startTimer: "null",
       startGame: (order) => {
-        return 'null'
+        return "null";
       },
       points: {
-        var: 'null',
+        var: "null",
         setVar: (value) => {
-          return 'null'
+          return "null";
         },
       },
-    }
+    },
   };
 
   if (
     nome === "memory" &&
     gamedata.memory.started &&
-    gamedata.memory.timerId == false
+    gamedata.memory.timerId === false
   ) {
     runTimer();
   }
@@ -147,42 +142,58 @@ const App = (Jogo, nome) => {
   if (
     nome === "mine" &&
     gamedata.mine.started &&
-    gamedata.mine.timerId == false
+    gamedata.mine.timerId === false
   ) {
     runTimer();
   }
 
   return (
     <div className="background">
-        <div className="container">
-          <TabBar />
-          <div className="holdInfo">
-            {nome !== 'leaderboard'? <StartBtn
+      <div className="container1">
+        <TabBar />
+        <div className="holdInfo">
+          {nome !== "leaderboard" ? (
+            <StartBtn
               name={nome}
               str={path[nome].started.var}
               startIt={path[nome].startGame}
               runTime={runTimer}
-            /> : ()=>null}
-            {nome === "mine" ? (
-              gamedata.mine.started ? (
-                () => null
-              ) : (
-                <ChoiceBtn />
-              )
-            ) : (
+            />
+          ) : (
+            () => null
+          )}
+          {nome === "mine" ? (
+            gamedata.mine.started ? (
               () => null
-            )}
-            {nome !== 'leaderboard'? <Timer tempoProp={path[nome].tempo.var} />:()=>null}
-            {nome !== 'leaderboard'? <Points pontos={path[nome].points.var} /> : ()=>null}
-          </div>
-          <div className="jogoContent">
-            {nome !=='leaderboard'? <Jogo
+            ) : (
+              <ChoiceBtn />
+            )
+          ) : (
+            () => null
+          )}
+          {nome !== "leaderboard" ? (
+            <Timer tempoProp={path[nome].tempo.var} />
+          ) : (
+            () => null
+          )}
+          {nome !== "leaderboard" ? (
+            <Points pontos={path[nome].points.var} />
+          ) : (
+            () => null
+          )}
+        </div>
+        <div className="jogoContent">
+          {nome !== "leaderboard" ? (
+            <Jogo
               startIt={path[nome].startGame}
               runTime={runTimer}
               pState={path[nome].points.setVar}
-            /> : <Jogo data={gamedata.leaderBoard} />}
-          </div>
+            />
+          ) : (
+            <Jogo data={gamedata.leaderBoard} />
+          )}
         </div>
+      </div>
     </div>
   );
 };

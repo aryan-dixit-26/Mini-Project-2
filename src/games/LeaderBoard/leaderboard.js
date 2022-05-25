@@ -5,7 +5,7 @@ const Leader = (props) => {
   const memDivs = [];
   const minesDivs = [];
 
-  if (Object.keys(props.data).length != 0) {
+  if (Object.keys(props.data).length !== 0) {
 
     data.memory.sort((a, b) => a.time - b.time).forEach((each) => {
       memDivs.push(

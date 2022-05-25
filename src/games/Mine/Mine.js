@@ -85,14 +85,14 @@ const Mine = (props) => {
     const revealAround = (array) => {
       array.forEach((e, i) => {
         if (
-          newGrid[e.y][e.x].value == "B" ||
+          newGrid[e.y][e.x].value === "B" ||
           newGrid[e.y][e.x].revealed === true
         ) {
           return;
         }
         newGrid[e.y][e.x].revealed = true;
 
-        if (newGrid[e.y][e.x].value == 0) {
+        if (newGrid[e.y][e.x].value === 0) {
           revealAround(newGrid[e.y][e.x].around);
         }
       });
@@ -102,7 +102,7 @@ const Mine = (props) => {
       newGrid[y][x].revealed = true;
     }
 
-    if (newGrid[y][x].value == 0) {
+    if (newGrid[y][x].value === 0) {
       newGrid[y][x].revealed = true;
       revealAround(newGrid[y][x].around);
     }

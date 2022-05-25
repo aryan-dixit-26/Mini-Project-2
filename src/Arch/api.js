@@ -1,6 +1,6 @@
 import http from "./http";
 import gamedata from "../games/GameData";
-
+// eslint-disable-next-line
 export default {
   postScore: (game, time, turns) => {
     
@@ -20,7 +20,7 @@ export default {
       const getAnomId = Number(gamedata.username.split("m")[1]);
 
       req.data.forEach((each) => {
-        if (getAnomId == each.id) {
+        if (getAnomId === each.id) {
           nameExist = true;
         }
       });

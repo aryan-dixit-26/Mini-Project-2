@@ -1,0 +1,114 @@
+.about{
+    width: 100%;
+    height: 100vh;
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #c8e8e0;
+    font-size: 1.3em;
+    padding: 2rem;
+    word-spacing: 2px;  
+}
+
+.about--box1{
+    width: 30%;
+    height: 60vh;
+    /* border: 2px solid white; */
+    padding: 2rem;
+    text-overflow: clip;
+
+}
+
+.about--box1 h3{
+    font-size: 2.5rem;
+    color: #2e937a !important;
+}
+
+.about--box1--quote{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.about--box1--socialMedia{
+    width: 100%;
+    height: 8vh;
+    /* padding: 1rem; */
+    /* border: 1px solid blue; */
+    font-size: 2.3rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #2e937a !important;
+    font-weight: bold;
+}
+
+ /* Box2 */
+
+.about--box2{
+    /* border: 2px solid black; */
+    width: 30%;
+    height: 60vh;
+    padding: 2rem;
+    letter-spacing: 2px;
+}
+
+.about--box2 h4{
+    color: #2e937a !important;
+}
+
+.about--box2--heading1{
+    margin-bottom: 2rem;
+}
+
+.about--box2--heading1 h4{
+    margin-bottom: 1rem;
+}
+
+.about--box2--heading2 h4{
+    margin-bottom: 1rem;
+}
+
+
+/* Box3  */
+
+.about--box3{
+  width: 30%;
+  height: 60vh;
+  padding: 2rem;
+  /* border: 2px solid black; */
+}
+
+.about--box3 form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.about--box3 form input, textarea{
+    width: 100%;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+input, textarea{
+    border-radius: 15px;
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+}
+
+input[type=submit]{
+    background-color: #2e937a ;
+    color: white;
+    font-size: 1.5rem;
+}
+
+input[type=submit]:hover{
+    cursor: pointer;
+    background-color: grey;
+}
