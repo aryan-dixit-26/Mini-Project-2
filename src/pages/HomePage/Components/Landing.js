@@ -1,6 +1,11 @@
 import "./css/landing.css";
-
+import React from "react";
+import {useHistory} from "react-router-dom"
 export default function Landing() {
+  let navigate=useHistory();
+  let navigatePlay=()=>{
+    navigate.push("./memory");
+  }
   return (
     <div className="landing">
       <div className="landing--box">
@@ -33,7 +38,7 @@ export default function Landing() {
               Don't let yourself get bored.
             </li>
           </ul>
-          <button>PLAY</button>
+          <button onClick={navigatePlay} >PLAY</button>
         </div>
         <div className="landing--box--part p2">
           <img src="./images/wordleImg.jpg" alt="" className="landing--img" />
@@ -43,13 +48,10 @@ export default function Landing() {
         <h1>What seperates us ?</h1>
         <div className="landing--text-para">
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa
-            numquam a, corrupti deserunt adipisci libero quod, iure quidem quis
-            ab qui ratione quos fugit molestiae dolores labore cumque ipsam
-            nobis!
+           Our community does not deals in advertisement rather seamless entertainment without any unnecessary traffic. Providing you the best of the best...
           </p>
         </div>
-        <button>Read More</button>
+        <button >Read More</button>
       </div>
     </div>
   );

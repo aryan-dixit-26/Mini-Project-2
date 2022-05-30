@@ -11,6 +11,7 @@ import { Switch, Route } from "react-router-dom";
 // import Navbar from "./components/Navbar";
 import Homepage from "./pages/HomePage/Homepage";
 
+
 const routes = (
   <div>
     <BrowserRouter>
@@ -22,6 +23,7 @@ const routes = (
     </BrowserRouter>
   </div>
 );
+
 
 ReactDOM.render(routes, document.getElementById("root"));
 

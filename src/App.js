@@ -21,7 +21,9 @@ const App = (Jogo, nome) => {
   const [pointsMine, setpointsMine] = useState(gamedata.mine.pontos);
   // eslint-disable-next-line
   const [apiLoading, setApiLoading] = useState(true);
-
+  // useEffect(()=>{
+  //   document.title="GAMER'S UNITED";
+  // })
   useEffect(() => {
     http.get("/Memory").then((res) => {
       const memData = res.data;

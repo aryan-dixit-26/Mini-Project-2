@@ -9,7 +9,7 @@ export default function Main() {
     console.log(cards)
   return (
     <div className="main">
-        <h1>Sample Heading </h1>
+        <h1>Click-n-Play </h1>
       <div className="main--cards">
         {cards}
       </div>
